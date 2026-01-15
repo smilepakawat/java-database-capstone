@@ -1,10 +1,13 @@
 package com.project.back_end.models;
 
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
+
+import java.util.List;
 
 @Entity
 public class Doctor extends User {
@@ -22,5 +25,8 @@ public class Doctor extends User {
 
     @Pattern(regexp = "\\d{10}")
     private String phone;
+
+    @ElementCollection
+    private List<String> availableTimes;
 }
 
